@@ -1,0 +1,170 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Montserrat', sans-serif;
+    background-color: #e74c3c; /* Rojo romántico */
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    text-align: center;
+    overflow: hidden;
+    position: relative;
+}
+
+.heart-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 0;
+}
+
+.heart-background::before,
+.heart-background::after,
+.heart-background span {
+    content: '❤';
+    position: absolute;
+    font-size: 50px;
+    color: rgba(255, 255, 255, 0.15);
+    animation: floatHeart 10s infinite ease-in-out;
+    user-select: none; /* Para que no se puedan seleccionar los corazones */
+}
+
+.heart-background::before { left: 10%; top: 20%; font-size: 60px; animation-duration: 12s; }
+.heart-background::after { right: 15%; top: 30%; font-size: 40px; animation-duration: 8s; }
+.heart-background span:nth-of-type(1) { top: 60%; left: 70%; font-size: 55px; animation-duration: 11s; }
+.heart-background span:nth-of-type(2) { top: 80%; left: 25%; font-size: 35px; animation-duration: 9s; }
+.heart-background span:nth-of-type(3) { top: 5%; left: 50%; font-size: 45px; animation-duration: 13s; }
+
+
+@keyframes floatHeart {
+    0%, 100% { transform: translateY(0) rotate(0deg); opacity: 0.15; }
+    50% { transform: translateY(-25px) rotate(15deg); opacity: 0.05; }
+}
+
+.container {
+    background-color: rgba(0, 0, 0, 0.2);
+    padding: 30px 40px;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+    z-index: 1;
+    max-width: 90%;
+}
+
+h1#main-message { /* Más específico para el h1 de mensajes */
+    font-family: 'Pacifico', cursive;
+    font-size: 2.3em; /* Ligeramente ajustado */
+    margin-top: 0; /* Quitar margen superior si es el primer elemento */
+    margin-bottom: 30px;
+    line-height: 1.4; /* Ajustado para mejor lectura */
+}
+
+button#action-button { /* Más específico para el botón principal */
+    background-color: #ff6b81;
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    font-size: 1.2em;
+    font-weight: bold;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+button#action-button:hover {
+    background-color: #ff87a0;
+    transform: translateY(-2px);
+}
+
+button#action-button:active {
+    transform: translateY(1px);
+}
+
+/* Estilos para el contenedor de fotos de gatos */
+#cat-image-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 25px; /* Espacio antes del mensaje/botón */
+}
+
+/* Estilo para CADA foto de gato */
+#cat-image-container img {
+    max-width: 180px;
+    max-height: 200px;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    border-radius: 10px;
+    border: 3px solid white;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+/* Estilos para la imagen del regalo final */
+#gift-step img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 90vw;
+    max-height: 75vh;
+    width: auto;
+    height: auto;
+    border-radius: 10px;
+    margin-top: 15px;
+    margin-bottom: 20px;
+    border: 5px solid white;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+.celebration-text {
+    font-family: 'Pacifico', cursive;
+    font-size: 1.8em;
+    margin-top: 20px;
+    color: #f9f9f9;
+}
+
+/* Estilo para la foto de ustedes dos */
+#our-photo {
+    display: block; /* Para que ocupe su propia línea y se puedan aplicar márgenes auto */
+    margin: 25px auto; /* Margen arriba/abajo de 25px, y centrada horizontalmente */
+    max-width: 80vw;   /* Máximo ancho del 80% de la ventana */
+    max-height: 70vh;  /* Máximo alto del 70% de la ventana */
+    width: auto;
+    height: auto;
+    object-fit: contain; /* Asegura que toda la imagen se vea bien */
+    border-radius: 12px; /* Bordes redondeados */
+    border: 4px solid white; /* Un borde blanco bonito */
+    box-shadow: 0 6px 18px rgba(0,0,0,0.3); /* Una sombra un poco más pronunciada */
+}
+
+@media (max-width: 600px) {
+    h1#main-message {
+        font-size: 1.7em; /* Ajustado para móviles */
+    }
+    button#action-button {
+        padding: 12px 25px;
+        font-size: 1em;
+    }
+    .container {
+        padding: 20px;
+    }
+    .celebration-text {
+        font-size: 1.5em;
+    }
+    #cat-image-container img {
+        max-width: 130px; /* Gatos un poco más pequeños en móviles */
+        max-height: 160px;
+    }
+    .heart-background::before,
+    .heart-background::after,
+    .heart-background span {
+        font-size: 30px;
+    }
+}
